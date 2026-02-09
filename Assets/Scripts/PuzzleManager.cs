@@ -17,11 +17,11 @@ public class PuzzleManager : MonoBehaviour
     [Header("Clues")]
     public string[] clues = new string[]
     {
-        "A lever awaits your touch to bring light",
-        "Power lies hidden, seek the energy source",
-        "Look for something that shines in the darkness...",
-        "The floor holds secrets, tread carefully in order",
-        "Ancient columns must face the same direction"
+        "Something nearby still remembers how to wake the darkness",
+        "Scattered energy must be reclaimed before light can endure",
+        "With power restored, something begins to shine above",
+        "The floor remembers every step—not all paths forgive mistakes",
+        "Only harmony opens the way; let all face the same truth"
     };
 
     void Start()

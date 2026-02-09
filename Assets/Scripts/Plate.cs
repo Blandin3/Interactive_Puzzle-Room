@@ -6,11 +6,11 @@ public class EasyPlate : MonoBehaviour
     public EasyPlateManager manager;
     public Material activeMat;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Plate collision with: " + other.gameObject.name + " | Tag: " + other.gameObject.tag);
+        Debug.Log("Plate trigger with: " + other.gameObject.name + " | Tag: " + other.gameObject.tag);
         
-        if (!activated && other.gameObject.CompareTag("Player"))
+        if (!activated && other.CompareTag("Player"))
         {
             activated = true;
             GetComponent<Renderer>().material = activeMat;

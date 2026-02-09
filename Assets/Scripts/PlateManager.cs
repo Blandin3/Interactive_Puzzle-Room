@@ -14,23 +14,36 @@ public class EasyPlateManager : MonoBehaviour
 
         if (activatedPlates >= totalPlates)
         {
-            Debug.Log("Easy puzzle solved! Destroying plates...");
+            Debug.Log("All plates activated! Puzzle complete!");
             
-            if (puzzleManager) puzzleManager.TaskCompleted();
-            
-            if (plates.Length == 0)
+            if (puzzleManager)
             {
-                Debug.LogError("No plates assigned in array!");
-                return;
+                puzzleManager.TaskCompleted();
+                Debug.Log("Called TaskCompleted on PuzzleManager");
+            }
+            else
+            {
+                Debug.LogError("PuzzleManager not assigned!");
             }
             
-            foreach (GameObject plate in plates)
+            DestroyPlates();
+        }
+    }
+    
+    void DestroyPlates()
+    {
+        if (plates.Length == 0)
+        {
+            Debug.LogError("No plates assigned in array!");
+            return;
+        }
+        
+        foreach (GameObject plate in plates)
+        {
+            if (plate)
             {
-                if (plate)
-                {
-                    Debug.Log("Destroying plate: " + plate.name);
-                    Destroy(plate);
-                }
+                Debug.Log("Destroying plate: " + plate.name);
+                Destroy(plate);
             }
         }
     }
